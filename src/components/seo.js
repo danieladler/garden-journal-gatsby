@@ -19,6 +19,7 @@ function SEO({ description, lang, meta, title }) {
             title
             description
             author
+            testProp
           }
         }
       }
@@ -67,6 +68,10 @@ function SEO({ description, lang, meta, title }) {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          name:`test`,
+          content: site.siteMetadata.testProp
+        }
       ].concat(meta)}
     />
   )
