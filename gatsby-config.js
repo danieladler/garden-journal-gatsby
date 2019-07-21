@@ -31,5 +31,40 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/posts/`,
+      },
+    },
+    // test query after installing this plugin and adding test .md file:
+    //
+    // allFile {
+    //   edges {
+    //     node {
+    //       extension
+    //     }
+    //   }
+    // }
+    //
+    `gatsby-transformer-remark`
+    // test query after installing this plugin and updating test .md file to have front matter:
+    //
+    //
+    // allMarkdownRemark {
+    //    totalCount
+    //    edges {
+    //      node {
+    //        frontmatter {
+    //          title
+    //          slug
+    //          date(formatString: "MMMM DD, YYYY")
+    //        }
+    //        excerpt
+    //        timeToRead
+    //      }
+    //    }
+    //  }
   ],
 }
