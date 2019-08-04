@@ -1,9 +1,8 @@
 ---
-
-slug: "/second-post"
-date: "2019-07-22"
-title: "The Second Post"
-
+slug: /second-post
+date: '2019-07-22'
+title: The Second Post
+rating: 2
 ---
 
 # Sup 🤙🏻
