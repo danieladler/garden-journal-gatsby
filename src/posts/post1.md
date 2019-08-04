@@ -1,9 +1,8 @@
 ---
-
-slug: "/first-post"
-date: "2019-07-21"
-title: "The First Post"
-
+slug: /first-post
+date: '2019-07-21'
+title: The First Post
+rating: 1
 ---
 
 # Hello! 👋🏻
