@@ -48,7 +48,7 @@ module.exports = {
     //   }
     // }
     //
-    `gatsby-transformer-remark`
+    `gatsby-transformer-remark`,
     // test query after installing this plugin and updating test .md file to have front matter:
     //
     //
@@ -66,5 +66,6 @@ module.exports = {
     //      }
     //    }
     //  }
+    `gatsby-plugin-netlify-cms`
   ],
 }
