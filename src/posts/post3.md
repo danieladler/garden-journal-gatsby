@@ -1,9 +1,8 @@
 ---
-
-slug: "/third-post"
-date: "2019-07-28"
-title: "The Third Post"
-
+slug: /third-post
+date: '2019-07-28'
+title: The Third Post
+rating: 3
 ---
 
 # Third Post 👍🏻
