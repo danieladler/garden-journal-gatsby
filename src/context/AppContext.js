@@ -3,14 +3,14 @@ import React, { Component } from "react"
 const AppContext = React.createContext()
 
 class AppProvider extends Component {
+  // TODO: add a gQL query to set a default featuredPost (most recent? random?)
   state = {
-    num: 1
+    featuredPost: null
   }
 
-  addOne = () => {
-    console.log('addOne');
-    let num = this.state.num + 1;
-    this.setState({ num });
+  setFeaturedPost = (featuredPost) => {
+    console.log(featuredPost);
+    this.setState({ featuredPost });
   }
 
   render() {
@@ -20,7 +20,7 @@ class AppProvider extends Component {
       <AppContext.Provider
         value={{
           state: this.state,
-          addOne: this.addOne,
+          setFeaturedPost: this.setFeaturedPost,
         }}
       >
         {children}

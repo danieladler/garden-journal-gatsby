@@ -42,7 +42,6 @@ const Header = ({ siteTitle }) => (
               {siteTitle}
             </Link>
           </h1>
-          <button onClick={context.addOne}>Count: {context.state.num}</button>
         </div>
       </header>
     )}
