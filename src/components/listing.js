@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import AppContext from "../context/AppContext";
+import ListItem from "../components/listItem";
 
 const LISTING_QUERY = graphql`
   query BlogPostListing {
@@ -15,6 +16,7 @@ const LISTING_QUERY = graphql`
               date(formatString: "MMMM DD, YYYY")
               title
               slug
+              rating
             }
           }
         }
@@ -24,6 +26,15 @@ const LISTING_QUERY = graphql`
 
 const Listing = () => {
   const { allMarkdownRemark } = useStaticQuery(LISTING_QUERY);
+  const appContext = useContext(AppContext);
+  const { date } = appContext.state
+
+  let filteredMapped = allMarkdownRemark.edges.filter(({node}) => {
+      return node.frontmatter.rating >= date // update from static to value from context.state
+    }
+  ).map((node, i) => {
+    return <ListItem data={node} key={i} />
+  })
 
   return (
     <AppContext.Consumer>
@@ -31,22 +42,7 @@ const Listing = () => {
         <>
           <h2>Posts:</h2>
           <ul>
-            {allMarkdownRemark.edges.map(({node}) => (
-              <li key={node.frontmatter.slug}>
-                <article>
-                  <button onClick={() => {context.setFeaturedPost(node.frontmatter)}}>{node.frontmatter.title}</button>
-                </article>
-                {/*
-                  <article>
-                    <Link to={`/posts${node.frontmatter.slug}`}>
-                      <h3>{node.frontmatter.title}</h3>
-                    </Link>
-                    <p>{node.frontmatter.date}</p>
-                    <p>{node.excerpt}</p>
-                  </article>
-                */}
-              </li>
-            ))}
+            {filteredMapped}
           </ul>
         </>
       )}

@@ -12,6 +12,7 @@ export default class postLayout extends Component {
         <div dangerouslySetInnerHTML={{
           __html: markdownRemark.html
         }}/>
+        <h2>Rating: {markdownRemark.frontmatter.rating}</h2>
       </Layout>
     )
   }
@@ -29,6 +30,7 @@ export const query = graphql`
         title
         slug
         date
+        rating
       }
     }
   }

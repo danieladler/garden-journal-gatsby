@@ -5,12 +5,16 @@ const AppContext = React.createContext()
 class AppProvider extends Component {
   // TODO: add a gQL query to set a default featuredPost (most recent? random?)
   state = {
-    featuredPost: null
+    featuredPost: null,
+    date: null
   }
 
   setFeaturedPost = (featuredPost) => {
-    console.log(featuredPost);
-    this.setState({ featuredPost });
+    this.setState({ featuredPost })
+  }
+
+  setDisplayedDate = (date) => {
+    this.setState({ date })
   }
 
   render() {
@@ -21,6 +25,7 @@ class AppProvider extends Component {
         value={{
           state: this.state,
           setFeaturedPost: this.setFeaturedPost,
+          setDisplayedDate: this.setDisplayedDate,
         }}
       >
         {children}
