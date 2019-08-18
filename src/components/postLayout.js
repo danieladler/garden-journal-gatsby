@@ -30,7 +30,6 @@ export const query = graphql`
         title
         slug
         date
-        rating
       }
     }
   }

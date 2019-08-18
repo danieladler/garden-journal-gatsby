@@ -3,15 +3,16 @@ import AppContext from "../context/AppContext"
 
 const ListItem = (props) => {
 
-  const { node } = props.data;
+  const { data, pctGrowth } = props;
 
   return (
     <AppContext.Consumer>
       {context => (
         <>
-          <button onClick={() => {context.setFeaturedPost(node.frontmatter)}}>
-            {node.frontmatter.title}
-          </button>
+          <button onClick={() => {context.setFeaturedPost(data.frontmatter)}}>
+            {data.frontmatter.title}
+          </button> :
+          { pctGrowth }
         </>
       )}
     </AppContext.Consumer>

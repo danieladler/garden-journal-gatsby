@@ -35,7 +35,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `pages`,
-        path: `${__dirname}/src/posts/`,
+        path: `${__dirname}/src/plants/`,
       },
     },
     // test query after installing this plugin and adding test .md file:

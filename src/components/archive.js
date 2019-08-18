@@ -13,7 +13,6 @@ const POST_ARCHIVE_QUERY = graphql`
             title
             slug
             date(formatString: "MMMM DD, YYYY")
-            rating
           }
         }
       }

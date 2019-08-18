@@ -15,7 +15,6 @@ const DateSlider = () => {
             onChange={(e) => {context.handleSliderChange(e.target.value)}}
           />
           <h1>{context.state.dateFormatted}</h1>
-          <h1>{context.state.dateInt}</h1>
         </>
       )}
     </AppContext.Consumer>

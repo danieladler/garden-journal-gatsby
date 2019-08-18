@@ -5,7 +5,6 @@ import Layout from "../components/layout"
 import FeaturedPost from "../components/FeaturedPost"
 import DateSlider from "../components/DateSlider"
 import Listing from "../components/listing"
-import Archive from "../components/archive"
 import Image from "../components/image"
 import SEO from "../components/seo"
 
@@ -15,7 +14,6 @@ const IndexPage = () => (
     <FeaturedPost />
     <DateSlider />
     <Listing />
-    <Archive />
   </Layout>
 )
 
