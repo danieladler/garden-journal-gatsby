@@ -6,15 +6,30 @@ class AppProvider extends Component {
   // TODO: add a gQL query to set a default featuredPost (most recent? random?)
   state = {
     featuredPost: null,
-    date: null
+    dateFormatted: null,
+    dateInt: null
   }
 
   setFeaturedPost = (featuredPost) => {
     this.setState({ featuredPost })
   }
 
-  setDisplayedDate = (date) => {
-    this.setState({ date })
+  handleSliderChange = (date) => {
+    this.convertDateFromInt(date)
+    this.setDateInt(date)
+  }
+
+  convertDateFromInt = (date) => {
+    let dateFromInt = new Date(2019, 0, date).toLocaleDateString()
+    this.setFormattedDate(dateFromInt)
+  }
+
+  setFormattedDate = (dateFromInt) => {
+    this.setState({ dateFormatted: dateFromInt })
+  }
+
+  setDateInt = (dateInt) => {
+    this.setState({ dateInt })
   }
 
   render() {
@@ -25,7 +40,7 @@ class AppProvider extends Component {
         value={{
           state: this.state,
           setFeaturedPost: this.setFeaturedPost,
-          setDisplayedDate: this.setDisplayedDate,
+          handleSliderChange: this.handleSliderChange,
         }}
       >
         {children}
