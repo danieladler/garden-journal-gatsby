@@ -1,0 +1,36 @@
+.grid {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.grid-item-ctnr {
+  border: 1px solid lightgrey;
+
+  & + & {
+    border-left: none;
+  }
+}
+
+.grid-item {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  position: relative;
+  width: 100px;
+
+  &__content {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+
+  &__growth {
+    background-color: palegreen;
+    opacity: 0.5;
+    z-index: 0;
+  }
+}
