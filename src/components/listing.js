@@ -28,7 +28,7 @@ const Listing = () => {
   let plantGrowthList = allMarkdownRemark.edges.map(({node}, i) => {
     return (
       <div className="grid-item-ctnr" key={i}>
-        <ListItem data={node} pctGrowth={appContext.getPlantGrowth(node)}/>
+        <ListItem data={node} pctGrowth={appContext.getPlantGrowth(node)} endOfHarvest={appContext.getPlantHarvest(node)} />
       </div>
     )
   })

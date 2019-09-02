@@ -46,6 +46,21 @@ class AppProvider extends Component {
     return pctGrowth
   }
 
+  getPlantHarvest = (node) => {
+    let plantedDateInt = moment(node.frontmatter.plantedDate).format('DDD')
+    let firstHarvestInt = parseInt(plantedDateInt) + node.frontmatter.daysToHarvest
+    let lastHarvestInt = firstHarvestInt + node.frontmatter.harvestWindow
+    let pctHarvestable = ((lastHarvestInt - this.state.dateInt) / node.frontmatter.harvestWindow).toFixed(2)
+
+    if (pctHarvestable <= 0) {
+      return 0
+    } else if (pctHarvestable >= 1) {
+      return 1
+    }
+
+    return pctHarvestable
+  }
+
   render() {
     const { children } = this.props
 
@@ -56,6 +71,7 @@ class AppProvider extends Component {
           setFeaturedPost: this.setFeaturedPost,
           handleSliderChange: this.handleSliderChange,
           getPlantGrowth: this.getPlantGrowth,
+          getPlantHarvest: this.getPlantHarvest,
         }}
       >
         {children}

@@ -13,12 +13,13 @@
 
 .grid-item {
   align-items: center;
+  background-color: whitesmoke;
   cursor: pointer;
   display: flex;
-  height: 100px;
+  height: 200px;
   justify-content: center;
   position: relative;
-  width: 100px;
+  width: 200px;
 
   &__content {
     left: 50%;
@@ -26,11 +27,19 @@
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
+
+    // TEMP
+    width: 80%;
+    text-align: center;
+
+    p {
+      margin-bottom: 5px;
+    }
+    // TEMP
   }
 
   &__growth {
-    background-color: palegreen;
-    opacity: 0.5;
+    background-color: mediumseagreen;
     z-index: 0;
   }
 }

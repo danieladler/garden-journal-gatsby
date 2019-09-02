@@ -4,7 +4,7 @@ import "../scss/grid.scss";
 
 const ListItem = (props) => {
 
-  const { data, pctGrowth } = props;
+  const { data, pctGrowth, endOfHarvest } = props;
 
   return (
     <AppContext.Consumer>
@@ -12,9 +12,19 @@ const ListItem = (props) => {
         <>
           <div className="grid-item" onClick={() => {context.setFeaturedPost(data.frontmatter)}}>
             <div className="grid-item__content">
-              {data.frontmatter.title}: { pctGrowth }
+              {/* TODO: just show pctGrowth on hover */}
+              <p><strong>{data.frontmatter.title}</strong></p>
+              <p>Growth: { pctGrowth }</p>
+              <p>Harvest: { endOfHarvest }</p>
             </div>
-            <div className="grid-item__growth" style={{width: `${pctGrowth * 100}%`, height: `${pctGrowth * 100}%`}}/>
+            <div
+              className="grid-item__growth"
+              style={{
+                width: `${pctGrowth * 100}%`,
+                height: `${pctGrowth * 100}%`,
+                opacity: `${endOfHarvest}`
+              }}
+            />
           </div>
         </>
       )}
